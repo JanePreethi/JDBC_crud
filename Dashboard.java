@@ -32,7 +32,7 @@ public class Dashboard extends Login{
 		while(true) {
 			System.out.println("--Admin Dashboard--");
 			System.out.print("1.Register New Student \n2.View Student Details"
-					+ " \n3.Update \n4.Delete \n0-Exit\nEnter Choice : ");
+					+ " \n3.Update \n4.Delete \n0.Exit\nEnter Choice : ");
 			int ac= sc.nextInt();
 			System.out.println();
 			if(ac==1) {
@@ -74,9 +74,13 @@ public class Dashboard extends Login{
 				System.out.println("--Delete Student Record--");
 				System.out.print("Enter Register Number : ");
 				int regno = sc.nextInt();
-				int r = remove(regno);
-				System.out.println(r>0 ? "Deleted":"Failed to Delete!");
-				System.out.println();
+				System.out.print("Press Y to confirm delete!");
+				char del = sc.next().charAt(0);
+				if(del=='y' || del == 'Y') {
+					int r = remove(regno);
+					System.out.println(r>0 ? "Deleted":"Failed to Delete!");
+					System.out.println();
+				}
 			}
 			else if(ac==0) {
 				System.out.println("App Closed!");
